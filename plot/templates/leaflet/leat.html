@@ -1,0 +1,150 @@
+<html>
+<head>
+  <title>ShotPlot: Plot Golf Shots</title>
+  {% load staticfiles %}
+  <link rel="stylesheet" href="{% static 'leaflet.css' %}"/>
+  <link href="{% static 'scorecard.css' %}" type="text/css" rel="stylesheet">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+  <script src="{% static 'leaflet.js' %}"></script>
+  <!--<script src="{% static 'working_leaflet.markercluster.js' %}"></script>-->
+  <style>
+    #map{ height: 100% }
+  </style>
+</head>
+<body style="background: url('http://pga-tour-res.cloudinary.com/image/upload/c_fill,f_auto,g_center,q_80,w_1320/v1/pgatour/editorial/2015/05/08/sawgrassday17-1320.jpg') no-repeat; background-size: cover">
+  <select id="seasonSelect">
+    <option>2017</option>
+    <option>2016</option> 
+  </select>
+  
+  <select id="playerSelect" onchange="shotplot.setupPlayer()">
+    <option>Kevin Chappell</option>
+    <option>Tiger Woods</option>
+  </select>
+  <select id="roundSelect" onchange="shotplot.setupHole()"></select>
+  <select id="holeSelect" onchange="shotplot.setupHole()">
+    <option>1</option>
+    <option>2</option>
+    <option>3</option>
+    <option>4</option>
+    <option>5</option>
+    <option>6</option>
+    <option>7</option>
+    <option>8</option>
+    <option>9</option>
+    <option>10</option>
+    <option>11</option>
+    <option>12</option>
+    <option>13</option>
+    <option>14</option>
+    <option>15</option>
+    <option>16</option>
+    <option>17</option>
+    <option>18</option>
+  </select>  
+  <input type="checkbox" name="fieldDrives" onclick="shotplot.toggleAllDrives()">
+  <input type="checkbox" name="longDrive" onclick="shotplot.toggleLongDrive()">
+
+  <div id="statBox" style="background-color:#382F2B; height: 80%; width: 80%; margin: 5% auto; opacity: .97" class="clear_fix">
+      <div id="map" style="height: 70%; width: 70%; opacity: .97; margin: 5% auto"></div>
+      <div id="buttonContainer">
+        <select id="tournamentSelect" onchange="shotplot.setupTournament()"></select>
+      </div>
+      <div id="wrapper" style="text-align: center">
+        <div id="scorecard" style="display: inline-block;">
+          <article class="front9">
+              <div class="hole">
+                  <span>Hole</span>
+                  <span onclick="shotplot.setupHole(1)">1</span>
+                  <span onclick="shotplot.setupHole(2)">2</span>
+                  <span onclick="shotplot.setupHole(3)">3</span>
+                  <span onclick="shotplot.setupHole(4)">4</span>
+                  <span onclick="shotplot.setupHole(5)">5</span>
+                  <span onclick="shotplot.setupHole(6)">6</span>
+                  <span onclick="shotplot.setupHole(7)">7</span>
+                  <span onclick="shotplot.setupHole(8)">8</span>
+                  <span onclick="shotplot.setupHole(9)">9</span>
+                  <span>Out</span>
+              </div>
+              <div class="par">
+                  <span>Par</span>
+                  <span>3</span>
+                  <span>5</span>
+                  <span>4</span>
+                  <span>4</span>
+                  <span>3</span>
+                  <span>4</span>
+                  <span>5</span>
+                  <span>4</span>
+                  <span>4</span>
+                  <span>36</span>
+              </div>
+              <div class="score">
+                  <span>Score</span>
+                  <span>3</span>
+                  <span>5</span>
+                  <span>4</span>
+                  <span>5</span>
+                  <span>3</span>
+                  <span>3</span>
+                  <span>5</span>
+                  <span>4</span>
+                  <span>4</span>
+                  <span class="sub">36</span>
+              </div>
+          </article>
+          <article class="back9">
+              <div class="hole">
+                  <span>Back</span>
+                  <span>10</span>
+                  <span>11</span>
+                  <span>12</span>
+                  <span>13</span>
+                  <span>14</span>
+                  <span>15</span>
+                  <span>16</span>
+                  <span>17</span>
+                  <span>18</span>
+                  <span>In</span>
+                  <span>Total</span>
+              </div>
+              <div class="par">
+                  <span>Par</span>
+                  <span>5</span>
+                  <span>3</span>
+                  <span>4</span>
+                  <span>3</span>
+                  <span>5</span>
+                  <span>4</span>
+                  <span>4</span>
+                  <span>3</span>
+                  <span>5</span>
+                  <span>36</span>
+              <span>72</span>
+              </div>
+              <div class="score">
+                  <span>Score</span>
+                  <span>6</span>
+                  <span>2</span>
+                  <span>5</span>
+                  <span>4</span>
+                  <span>5</span>
+                  <span>6</span>
+                  <span>4</span>
+                  <span>3</span>
+                  <span>6</span>
+                  <span class="sub">41</span>
+                  <span class="total">77</span>
+              </div>
+          </article>
+        </div>
+      </div>
+  </div>
+  <!--
+  -->
+  </body>
+  <script src="{% static 'polylineDecorator.js' %}"></script>
+  <script src="{% static 'eric.js' %}"></script>
+</body>
+</html>
+

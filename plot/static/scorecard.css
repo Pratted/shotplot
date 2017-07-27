@@ -1,0 +1,47 @@
+.front9, .back9 {
+  margin-bottom: 1em;
+}
+.front9 .hole, .back9 .hole {
+  background-color: #f63;
+  color: #fff;
+}
+
+.front9 .hole span, .back9 .hole span {
+  padding: .5em 0;
+  cursor: pointer;
+}
+.front9 .par, .back9 .par {
+  background-color: #ccc;
+  color: #777;
+}
+.front9 .par span, .back9 .par span {
+  padding: .25em 0;
+}
+.front9 .score, .back9 .score {
+  color: #f63;
+}
+.front9 .score span, .back9 .score span {
+  padding: .75em 0;
+}
+.front9 span, .back9 span {
+  border: rgba(0, 0, 0, 0.25) solid 1px;
+  border-width: 0 0 0 1px;
+  display: inline-block;
+  text-align: center;
+  width: 3em;
+}
+.front9 span:first-child, .back9 span:first-child {
+  text-align: left;
+  padding-left: 1em;
+  border-width: 0;
+}
+
+@media screen and (min-width: 80em) {
+  .front9, .back9 {
+    display: inline-block;
+  }
+
+  .back9 span:first-child {
+    display: none;
+  }
+}

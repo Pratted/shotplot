@@ -1,0 +1,127 @@
+<html>
+<head>
+  <title>ShotPlot: Plot Golf Shots</title>
+  <link rel="stylesheet" href="leaflet.css"/>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+  <script src="leaflet.js"></script>
+  <style>
+    #map{ height: 100% }
+  </style>
+</head>
+<body style="background: url(banner.jpg) no-repeat; background-size: cover">
+
+  
+  <select id="playerSelect">
+    <option>Kevin Chappell</option>
+    <option>Tiger Woods</option>
+  </select>
+  <select id="roundSelect">
+    <option>1</option>
+    <option>2</option>
+    <option>3</option>
+    <option>4</option>  
+  </select>
+
+  <select id="holeSelect">
+    <option>1</option>
+    <option>2</option>
+    <option>3</option>
+    <option>4</option>
+    <option>5</option>
+    <option>5</option>
+    <option>6</option>
+    <option>7</option>
+    <option>8</option>
+    <option>9</option>
+  </select>  
+
+
+  <input id="goButton" type="button" value="Go!" onclick="updateMap();">
+  <input id="clearButton" type="button" value="clear" onclick="clearShit();">
+
+  <div id="map" style="height: 60%; width: 60%; margin: 0 auto"></div>
+  <script src="eric.js"></script>
+  
+  
+  
+  
+  <!--
+  <script>
+
+  var bounds = [[0,0], [512, 1128]];
+
+  // initialize the map
+  var map = L.map('map', {
+	crs: L.CRS.Simple,
+  maxBounds: bounds,
+  maxBoundsViscosity: 1.0,
+  minZoom: 0,
+  maxZoom: 3
+  });
+  
+  var image = L.imageOverlay('10.jpg', bounds).addTo(map);
+  
+  function drawShit(){
+	  var circle2 = L.circle([400, 550], {
+		color: 'red',
+		fillColor: '#f03',
+		fillOpacity: 0.5,
+		radius: 1
+	}).addTo(map);
+	
+		var polyline = L.polyline([[300,600],[400,550]], {color: 'red', weight: '2'}).addTo(map);
+		var marker = L.marker([300,600]).addTo(map);
+		marker.bindPopup("Hello World!");
+		circle2.bindPopup("Fuck!");
+	}
+
+	function clearShit(){
+		for(i in map._layers) {
+			if(map._layers[i]._path != undefined) {
+				try {
+					map.removeLayer(map._layers[i]);
+				}
+				catch(e) {
+					console.log("problem with " + e + map._layers[i]);
+				}
+			}
+		}
+	}
+	
+  document.getElementById("goButton").onclick = drawShit;
+  map.fitBounds(bounds);
+  map.on('zoom', onZoom);
+  
+  function onZoom(e){
+	console.log(map.getZoom());
+  }
+  
+  var CanvasLayer = L.GridLayer.extend({
+    createTile: function(coords){
+        // create a <canvas> element for drawing
+        var tile = L.DomUtil.create('canvas', 'leaflet-tile');
+        // setup tile width and height according to the options
+        var size = this.getTileSize();
+        tile.width = size.x;
+        tile.height = size.y;
+        // get a canvas context and draw something on it using coords.x, coords.y and coords.z
+        var ctx = tile.getContext('2d');
+        // return the tile so it can be rendered on screen
+        return tile;
+    }
+	
+	
+});
+    
+  
+  // load a tile layer
+  //L.tileLayer('file:///C:/Users/Eric/Documents/holes/{z}/{x}_{y}.jpg',
+  //  {
+  //    maxZoom: 1,
+  //    minZoom: 0
+  //  }).addTo(map);
+
+  </script>
+  -->
+</body>
+</html>

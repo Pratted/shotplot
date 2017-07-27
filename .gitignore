@@ -1,0 +1,8 @@
+
+#Compiled Python
+*.pyc
+
+plot/keys.py
+
+plot/pgatourdb.py
+   
